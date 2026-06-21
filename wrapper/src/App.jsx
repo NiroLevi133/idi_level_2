@@ -76,7 +76,7 @@ function deepMerge(base, delta) {
 function App() {
   const [sessionId] = useState(() => crypto.randomUUID());
   const [messages, setMessages] = useState([
-    { role: 'agent', text: 'היי! אני שיר, הסוכנת של ביטוח ישיר לחו"ל 😊\nאני כאן כדי לעזור לך לסגור ביטוח נסיעות.\nלאן אתה מתכוון לטוס?', ui: 'text', uiAnswered: true }
+    { role: 'agent', text: 'היי, איזה כיף שטסים לחו"ל!\nאני שיר, הבוטית החדשה לביטוח נסיעות של ביטוח ישיר.\nאשמח לעזור לך לרכוש את הביטוח שמתאים לך ולענות על כל שאלה בדרך ✈️\nאז לאן נוסעים ומתי?', ui: 'text', uiAnswered: true }
   ]);
   const [sessionState, setSessionState] = useState(INITIAL_STATE);
   const [loading, setLoading] = useState(false);

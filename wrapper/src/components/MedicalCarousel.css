@@ -1,0 +1,85 @@
+.medical-carousel {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.carousel-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #E8401C;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ddd;
+  transition: background 0.2s;
+}
+
+.dot.active {
+  background: #E8401C;
+}
+
+.dot.answered {
+  background: #28a745;
+}
+
+.carousel-question {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #1a1a1a;
+  margin: 0;
+  direction: rtl;
+}
+
+.carousel-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-yes,
+.btn-no {
+  flex: 1;
+  padding: 11px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity 0.15s;
+}
+
+.btn-yes:hover,
+.btn-no:hover {
+  opacity: 0.85;
+}
+
+.btn-yes {
+  background: #fff0ed;
+  color: #E8401C;
+  border: 2px solid #E8401C;
+}
+
+.btn-no {
+  background: #E8401C;
+  color: white;
+}

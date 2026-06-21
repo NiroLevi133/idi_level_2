@@ -1,0 +1,103 @@
+.bubble-wrapper {
+  display: flex;
+  margin: 6px 0;
+}
+
+.bubble-wrapper.user { justify-content: flex-end; }
+.bubble-wrapper.agent { justify-content: flex-start; }
+
+.bubble {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.bubble-text {
+  white-space: pre-wrap;
+}
+
+.inline-widget {
+  margin-top: 12px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.user-bubble {
+  background: #E8401C;
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.agent-bubble {
+  background: #f5f5f5;
+  color: #1a1a1a;
+  border-bottom-left-radius: 4px;
+  border: 1px solid #e8e8e8;
+}
+
+.inline-widget {
+  margin-top: 12px;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+
+.json-toggle {
+  margin-top: 8px;
+}
+
+.json-btn {
+  font-size: 12px;
+  padding: 3px 10px;
+  border: 1px solid #d0d0d0;
+  border-radius: 12px;
+  background: #fff;
+  color: #555;
+  cursor: pointer;
+}
+
+.json-btn:hover {
+  background: #efefef;
+}
+
+.json-view {
+  margin-top: 8px;
+  max-height: 300px;
+  overflow: auto;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 10px;
+  border-radius: 8px;
+  direction: ltr;
+  text-align: left;
+}
+
+.typing {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding: 12px 16px;
+}
+
+.typing span {
+  width: 7px;
+  height: 7px;
+  background: #999;
+  border-radius: 50%;
+  animation: bounce 1.2s infinite;
+}
+
+.typing span:nth-child(2) { animation-delay: 0.2s; }
+.typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-6px); }
+}

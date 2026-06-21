@@ -1,0 +1,59 @@
+.date-range-picker {
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.date-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.date-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.date-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+}
+
+.date-field .react-datepicker-wrapper input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 140px;
+  cursor: pointer;
+  direction: rtl;
+}
+
+.day-count {
+  font-size: 13px;
+  color: #555;
+  margin: 0;
+}
+
+.confirm-btn {
+  background: #E8401C;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.confirm-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

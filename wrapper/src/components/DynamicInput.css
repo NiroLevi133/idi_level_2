@@ -1,0 +1,39 @@
+.text-input-row {
+  display: flex;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.text-input-row input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  direction: rtl;
+}
+
+.text-input-row button {
+  background: #0066CC;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.text-input-row button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.chat-done {
+  text-align: center;
+  color: #28a745;
+  font-size: 14px;
+  padding: 12px;
+  background: #f0fff4;
+  border-radius: 8px;
+}

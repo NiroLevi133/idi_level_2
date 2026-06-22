@@ -47,36 +47,26 @@
   overflow: hidden;
 }
 
-.json-toggle {
+.msg-badge {
+  display: inline-block;
   margin-top: 8px;
-}
-
-.json-btn {
   font-size: 12px;
   padding: 3px 10px;
-  border: 1px solid #d0d0d0;
   border-radius: 12px;
-  background: #fff;
-  color: #555;
-  cursor: pointer;
+  width: fit-content;
 }
 
-.json-btn:hover {
-  background: #efefef;
+.msg-badge.tool {
+  background: #eef3ff;
+  color: #2b4ea0;
+  border: 1px solid #cdd9f5;
 }
 
-.json-view {
-  margin-top: 8px;
-  max-height: 300px;
-  overflow: auto;
-  background: #1e1e1e;
-  color: #d4d4d4;
-  font-size: 12px;
-  line-height: 1.4;
-  padding: 10px;
-  border-radius: 8px;
-  direction: ltr;
-  text-align: left;
+.msg-badge.closed {
+  margin-right: 6px;
+  background: #fdeaea;
+  color: #a02b2b;
+  border: 1px solid #f5cdcd;
 }
 
 .typing {

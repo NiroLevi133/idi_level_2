@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DateRangePicker from './DateRangePicker';
 import MedicalCarousel from './MedicalCarousel';
 import './MessageBubble.css';
@@ -7,20 +7,18 @@ function MessageBubble({ role, text, ui, carouselData, uiAnswered, raw, onUIConf
   const isUser = role === 'user';
   const showDatePicker = !isUser && ui === 'date_picker' && !uiAnswered;
   const showCarousel = !isUser && ui === 'carousel' && !uiAnswered && carouselData?.length > 0;
-  const [showJson, setShowJson] = useState(false);
+  const sessionClosed = !isUser && raw?.sessionStatus && raw.sessionStatus !== 'open';
 
   return (
     <div className={`bubble-wrapper ${isUser ? 'user' : 'agent'}`}>
       <div className={`bubble ${isUser ? 'user-bubble' : 'agent-bubble'}`}>
         <div className="bubble-text">{text}</div>
-        {!isUser && raw && (
-          <div className="json-toggle">
-            <button className="json-btn" onClick={() => setShowJson(v => !v)}>
-              {showJson ? 'הסתר JSON' : '{ } הצג JSON'}
-            </button>
-            {showJson && (
-              <pre className="json-view">{JSON.stringify(raw, null, 2)}</pre>
-            )}
+        {!isUser && raw?.useTool && (
+          <div className="msg-badge tool">🔧 הופעל כלי: {raw.useTool}</div>
+        )}
+        {sessionClosed && (
+          <div className="msg-badge closed">
+            🔒 הסשן נסגר{raw.reasonForCloseSession ? `: ${raw.reasonForCloseSession}` : ''}
           </div>
         )}
         {showDatePicker && (

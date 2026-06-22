@@ -123,13 +123,11 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <div className="header-logo">
-          <img src={logo} alt="לוגו" className="header-logo-img" />
-          <div className="header-title">
-            <span className="header-title-main">שיר</span>
-            <span className="header-title-sub">ביטוח ישיר</span>
-          </div>
+        <div className="header-brand">
+          <img src={logo} alt="SHIR" className="header-logo-img" />
+          <span className="header-logo-text">SHIR</span>
         </div>
+        <div className="header-tagline">עוזרת AI לרכישת<br />ביטוח נסיעות לחו"ל</div>
       </header>
 
       <SummaryBar summary={sessionState} />

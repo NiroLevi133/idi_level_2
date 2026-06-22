@@ -1,23 +1,30 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_LANGFLOW_API_URL;
+const DIRECT_URL = import.meta.env.VITE_LANGFLOW_API_URL;
 const API_KEY = import.meta.env.VITE_LANGFLOW_API_KEY;
+// In production go through the serverless proxy (key stays server-side); locally call Langflow directly
+const USE_PROXY = import.meta.env.PROD;
 
 // Sends a message to the Langflow agent and returns { answers, fullModel, raw }
 export async function sendToAgent(userMessage, sessionId) {
-  const payload = {
-    input_value: userMessage,
-    output_type: 'chat',
-    input_type: 'chat',
-    session_id: sessionId,
-  };
-
-  const headers = { 'Content-Type': 'application/json' };
-  if (API_KEY && API_KEY !== 'your-api-key-here') {
-    headers['x-api-key'] = API_KEY;
+  let response;
+  if (USE_PROXY) {
+    response = await axios.post('/api/chat', {
+      input_value: userMessage,
+      session_id: sessionId,
+    });
+  } else {
+    const headers = { 'Content-Type': 'application/json' };
+    if (API_KEY && API_KEY !== 'your-api-key-here') {
+      headers['x-api-key'] = API_KEY;
+    }
+    response = await axios.post(DIRECT_URL, {
+      input_value: userMessage,
+      output_type: 'chat',
+      input_type: 'chat',
+      session_id: sessionId,
+    }, { headers });
   }
-
-  const response = await axios.post(API_URL, payload, { headers });
 
   const rawText =
     response.data?.outputs?.[0]?.outputs?.[0]?.results?.message?.text || '';

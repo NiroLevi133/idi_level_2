@@ -55,7 +55,6 @@ function ChatWindow({ messages, loading, onSend, onReject }) {
           onChange={e => setText(e.target.value)}
           onKeyDown={e => e.key === 'Enter' && handleTextSend()}
           placeholder="כתוב הודעה..."
-          disabled={loading}
         />
         <button onClick={handleTextSend} disabled={loading || !text.trim()}>שלח</button>
       </div>

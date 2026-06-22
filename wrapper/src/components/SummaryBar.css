@@ -1,60 +1,77 @@
 .sbar-wrapper {
+  position: relative;
   background: #fff;
-  border-bottom: 1px solid var(--gray-border);
-  padding: 8px 12px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-.sbar-wrapper::-webkit-scrollbar {
-  display: none;
+  padding: 14px 10px 22px;
+  border-bottom: 1px solid #f0f0f5;
 }
 
 .sbar-track {
   display: flex;
   flex-direction: row;
-  gap: 8px;
-  width: max-content;
+  justify-content: space-around;
+  gap: 4px;
 }
 
-.sbar-card {
+.sbar-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: var(--gray-bg);
-  border: 1px solid var(--gray-border);
-  border-radius: 10px;
-  padding: 7px 12px;
-  min-width: 90px;
-  max-width: 130px;
-  gap: 2px;
-  flex-shrink: 0;
+  gap: 6px;
+  flex: 1;
 }
 
 .sbar-icon {
-  font-size: 16px;
-  line-height: 1;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sbar-icon svg {
+  width: 22px;
+  height: 22px;
 }
 
 .sbar-label {
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--primary);
-  letter-spacing: 0.3px;
-  text-transform: uppercase;
-}
-
-.sbar-value {
   font-size: 11px;
+  font-weight: 600;
   color: var(--text-main);
-  font-weight: 500;
-  text-align: center;
-  white-space: pre-line;
-  word-break: break-word;
-  line-height: 1.4;
 }
 
-.sbar-value.empty {
-  color: #bbb;
+.sbar-item.active .sbar-icon {
+  background: var(--primary);
+  color: #fff;
+}
+
+.sbar-item.active .sbar-label {
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.sbar-chevron {
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #f0f0f5;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  z-index: 2;
+}
+
+.sbar-chevron svg {
+  width: 16px;
+  height: 16px;
 }

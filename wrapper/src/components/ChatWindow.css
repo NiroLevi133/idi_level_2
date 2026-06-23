@@ -24,9 +24,10 @@
   background: #fafafa;
   display: flex;
   gap: 8px;
+  align-items: flex-end;
 }
 
-.input-area input {
+.input-area textarea {
   flex: 1;
   padding: 10px 14px;
   border: 1px solid #ccc;
@@ -34,9 +35,13 @@
   font-size: 14px;
   direction: rtl;
   font-family: inherit;
+  resize: none;
+  line-height: 1.4;
+  max-height: 120px;
+  overflow-y: auto;
 }
 
-.input-area input:focus {
+.input-area textarea:focus {
   outline: none;
   border-color: var(--primary);
 }

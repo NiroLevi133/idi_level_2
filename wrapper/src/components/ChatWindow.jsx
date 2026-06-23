@@ -5,15 +5,27 @@ import './ChatWindow.css';
 function ChatWindow({ messages, loading, onSend, onReject }) {
   const [text, setText] = useState('');
   const bottomRef = useRef(null);
+  const textareaRef = useRef(null);
+  // Touch devices (mobile) have no convenient Shift key — Enter should add a line there
+  const isMobile = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, loading]);
 
+  // Grow the textarea with its content, up to the CSS max-height
+  const autoGrow = () => {
+    const el = textareaRef.current;
+    if (!el) return;
+    el.style.height = 'auto';
+    el.style.height = `${el.scrollHeight}px`;
+  };
+
   const handleTextSend = () => {
     if (!text.trim() || loading) return;
     onSend(text.trim());
     setText('');
+    requestAnimationFrame(autoGrow);
   };
 
   // Only the last unanswered agent message renders its widget
@@ -49,11 +61,18 @@ function ChatWindow({ messages, loading, onSend, onReject }) {
         <div ref={bottomRef} />
       </div>
       <div className="input-area">
-        <input
-          type="text"
+        <textarea
+          ref={textareaRef}
+          rows={1}
           value={text}
-          onChange={e => setText(e.target.value)}
-          onKeyDown={e => e.key === 'Enter' && handleTextSend()}
+          onChange={e => { setText(e.target.value); autoGrow(); }}
+          onKeyDown={e => {
+            // Web: Enter sends, Shift+Enter = new line. Mobile: Enter = new line (send via button)
+            if (e.key === 'Enter' && !e.shiftKey && !isMobile) {
+              e.preventDefault();
+              handleTextSend();
+            }
+          }}
           placeholder="כתוב הודעה..."
         />
         <button onClick={handleTextSend} disabled={loading || !text.trim()}>שלח</button>
